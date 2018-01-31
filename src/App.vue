@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style>
+@import 'highlight.js/styles/github.css';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

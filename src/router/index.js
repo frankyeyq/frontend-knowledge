@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import List from '@/components/List'
+import Home from '@/components/Home'
+import Test from '@/components/Test.md'
 
 Vue.use(Router)
 
@@ -8,28 +9,29 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'List',
-      component: List
+      name: 'Home',
+      component: Home,
+      hidden: true
     },
     {
       path: '/html',
       name: 'HTML',
-      component: List,
+      component: Home,
       children: [
-        {path: '/html/1', name: 'html1', component: List}
+        {path: '/html/2', name: 'test', component: Test}
       ]
     },
     {
       path: '/css',
       name: 'Css',
-      component: List,
+      component: Home,
       children: [
       ]
     },
     {
       path: '/js',
       name: 'JS',
-      component: List,
+      component: Home,
       children: [
       ]
     }
