@@ -2,12 +2,12 @@
     <div class="main">
         <el-row class="menu">
             <el-col :span="24">
-                <h5>前端知识</h5>
-                <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+                <h5>我不知道的前端知识</h5>
+                <el-menu :default-active="activeIndex" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
                     <template v-for="(item, index) in $router.options.routes" v-if="!item.hidden">
                         <el-menu-item-group :key="index" v-if="item.children && item.children.length>0">
                             <template slot="title">{{item.name}}</template>
-                            <el-menu-item index="1-1" v-for="(child, index) in item.children" :key="index"><router-link :to="child.path">{{child.name}}</router-link></el-menu-item>
+                            <el-menu-item :index="child.path" v-for="(child, index) in item.children" :key="index"><router-link :to="child.path">{{child.name}}</router-link></el-menu-item>
                         </el-menu-item-group>
                     </template>
                 </el-menu>
@@ -21,6 +21,11 @@
 
 <script>
 export default {
+    data() {
+        return {
+            activeIndex: ''
+        }
+    },
     methods: {
         handleOpen(key, keyPath) {
             console.log(key, keyPath);
